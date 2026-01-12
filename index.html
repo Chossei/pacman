@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Shake</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-wrapper">
+        <header>
+            <h1>PAC-MAN SHAKE</h1>
+            <div id="score-board">SCORE: <span id="score">0</span></div>
+        </header>
+        <canvas id="gameCanvas" width="448" height="496"></canvas>
+        <div id="game-over-overlay" class="hidden">
+            <h2>GAME OVER</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <button onclick="location.reload()">RESTART</button>
+        </div>
+        <p class="instructions">Use as SETAS para mover. Coma 10 pontos para TREMER!</p>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

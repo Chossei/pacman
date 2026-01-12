@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #111;
+    --text-color: #fff;
+    --pacman-yellow: #ffff00;
+    --wall-blue: #1919a6;
+    --shake-intensity: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    /* Prevent scrollbars during shake */
+}
+
+#game-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: var(--pacman-yellow);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #ff0000;
+}
+
+#score-board {
+    font-size: 18px;
+}
+
+canvas {
+    background-color: #000;
+    border: 4px solid var(--wall-blue);
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(25, 25, 166, 0.5);
+}
+
+.instructions {
+    margin-top: 15px;
+    font-size: 10px;
+    color: #aaa;
+}
+
+/* SHAKE ANIMATION */
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.shake-active {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+/* We will control the duration via JS or just set iteration count to 1 if we re-trigger */
+.shake-active {
+    animation: shake 0.1s;
+    animation-iteration-count: 5;
+    /* 0.5s total */
+}
+
+.hidden {
+    display: none !important;
+}
+
+#game-over-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid red;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+#game-over-overlay h2 {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+#game-over-overlay button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#game-over-overlay button:hover {
+    background: #bd0000;
+}
